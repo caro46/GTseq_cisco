@@ -12,6 +12,7 @@ Turns amplicon sequencing reads into genotype calls. Converts into SNP matrix, c
 | `02_call_genotypes/submit_gatk_amplicons.sh` | Calls variants from amplicon data with GATK | BAM | VCF |
 | `02_call_genotypes/gtseq_microhap*_sub.sh.sh` | Calls variants from amplicon data with gtseq_microhap | FASTQ, primers | VCF |
 | `03_convert_formats/microhap_vcf_to_database.R` | Converts VCF to genotype matrix | VCF | SNP matrix (.csv) |
+| `03_convert_formats/primers_IDT_to_locus_format.R` | Removes primers from list and converts from an ordering format into input format for `gtseq_microhap`| CSV | CSV |
 
 ## Software and settings
 
