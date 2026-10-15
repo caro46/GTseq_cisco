@@ -32,8 +32,21 @@ R v.4.4.2, Python v.3.9.25; primer3 v. 2.6.1; MFEprimer v.3.2.6, PrimerPooler v.
 
 ## Notes
 
+We moved forward without using information from mfeprimer and primerpooler because of the different use of Tm, big difference in deltaG range. Even by treating the results from both software independently to identify potential bad primers, the predicted set was very different. Likely we will use this information, combined with wet lab to test the use of deltaG in predicting bad boys.
+
 ### Commands for mfeprimer and primerpooler:
 
 `mfeprimer dimer -i ../../cisco_100wind_relax_primers.fa -o cisco_100wind_relax_primers_dimer_GTseq_param_mfe_tm57.txt --mono 50 --diva 3 --dntp 0.2 --oligo 54 --tm 57`
 
 `pooler --pools=2,,poolerfile /home2/SardLab/cauret/Ackiss_RADseq_Data/panel_1_files/primers_primerpooler.fa --dg=330.15,3,50,0.2 --print-bonds=-2 >pooler_bonds.txt`
+
+#### Input Requirement and parameters
+
+- `mfeprimer`: in fasta format: all primers in this file will be treated by mfeprimer as multiplex PCR reaction. We specified `-t, --tm float tm cutoff value to filter the amplicons (default 30)` in some runs and also use the default. In our case, not many are filtered at the specific Tm despite the known presence of dimers from wet lab.
+
+- `pooler`: fasta format: primer names need to contain `-F` or `-R` and for a locus `-R` needs to follow the corresponding `-F`. If same primer is used in multiple amplicons it needs to appear multiple times.
+
+- For both, we adjusted the PCR conditions. Worth noting that for inputs we used the primer sequences without tail, indexes. 
+
+- An important difference between the sofware is how Tm is included in prediction of dimers. `mfeprimer` predicts all dimers at the different Tm, then one can select the predicted dimers for their targeted Tm; on the other side `pooler` includes Tm in the deltaG calculation. Thus range of deltaG values are also very different. 
+
