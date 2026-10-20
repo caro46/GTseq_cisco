@@ -1,7 +1,3 @@
-
-### To do:
-# add colors on single primer plot for the over-represented 
-
 #module load R/4.4.2
 packages <- c("dplyr", "data.table", "ggplot2","stringr","VennDiagram")
 
