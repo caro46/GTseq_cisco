@@ -18,8 +18,8 @@ Selects loci from the candidate SNPs, designs and cleans primers, and prepares t
 | Script | What it does | Input | Output |
 |---|---|---|---|
 | `clean_primers.py`, `smart_clean_primers_v1.py` | Removes primers that fail delta G filter (proxy for dimers) | mfeprimer or mfeprimer/primerpooler outputs | cleaned primer table |
-| `primers_tab_to_fasta.R` | Converts the primer table to FASTA | primer table | FASTA |
-| `primer_tab_to_real_list.R` | Builds the final primer list for ordering | cleaned primer table | primer list |
+| `primers_tab_to_fasta.R` | Converts the primer table to FASTA (pooler input) | primer table | FASTA |
+| `primer_tab_to_real_list.R` | Builds the primer list for `smart_clean_primers.py` | cleaned primer table (primer3 type) | primer list |
 | `find_share_primers.R` | Finds primers shared between studies | primer table | table of shared primers |
 | `compare_mfe_pooler.R` | Compares minimum free energy / pooling predictions | mfeprimer, primerpooler outputs | comparison figs |
 | `parse_dimer_report.py` | Parses the primer dimer report (mfeprimer, primerpooler)| dimer report | CSV |
