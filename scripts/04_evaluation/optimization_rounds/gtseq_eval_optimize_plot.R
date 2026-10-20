@@ -1,13 +1,3 @@
-
-###### TO DO:
-#### 1- command argumments only
-#### 2- save a pdf diag only for now with the diff plots as separate pages
-#### 3- Create column Factor = type of dilution
-#### 4- plot with dilution_type as facet
-#### 5- find primers that did not work for any ind within a group (per dilution) - Venn diagramm
-#### 6- bad boys shared between dilution?
-#### Need to add color on read fig for the ones removed by cumsum
-
 #module load R/4.4.2
 packages <- c("dplyr", "data.table", "ggplot2","stringr","VennDiagram")
 
